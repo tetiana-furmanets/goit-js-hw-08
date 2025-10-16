@@ -72,7 +72,12 @@ const galleryItems = images
     ({ preview, original, description }) => `
     <li class="gallery-item">
       <a class="gallery-link" href="${original}">
-        <img class="gallery-image" src="${preview}" data-source="${original}" alt="${description}" />
+        <img 
+        class="gallery-image" 
+        src="${preview}"
+        data-source="${original}" 
+        alt="${description}" 
+        />
       </a>
     </li>
   `
@@ -97,5 +102,9 @@ galleryContainer.addEventListener("click", (event) => {
   `);
 
   instance.show();
-});
-
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      instance.close();
+    }
+  });
+})
